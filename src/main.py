@@ -5,6 +5,7 @@ from flask import redirect
 from random import randint, uniform,random
 from flask import render_template
 from flask import session
+import random 
 
 
 
@@ -26,8 +27,9 @@ def play():
     
    
     print(nombre)
-    return render_template("play.html", nombre=nombre, )
-    
+    return render_template("play.html", nombre=nombre )
+
+
 
 if __name__ == '__main__' :
     app.run('0.0.0.0', 5000,debug=True)
