@@ -23,7 +23,7 @@ def login():
 
 @app.route('/juego', methods=['GET', 'POST'])
 
-def sorteo(veces):
+def realizarSorteo(veces):
     sorteo = []
     for x in range(0, veces):
         print(random.randrange(6))
@@ -35,7 +35,7 @@ def sorteo(veces):
 def sorteo():
     nombre = request.form['name']
     numero = request.form['numero']
-    sorteo = sorteo(init(numero))
+    sorteo = realizarSorteo(init(numero))
 
     print(nombre)
     return render_template("play.html", nombre=nombre, numero=numero, sorteo=sorteo)
