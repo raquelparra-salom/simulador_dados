@@ -22,13 +22,25 @@ def login():
     return render_template("sign_up.html")
 
 @app.route('/juego', methods=['GET', 'POST'])
-def play():
+def sorteo():
+
+    sorteo = sorteo(numero)
     nombre = request.form['name']
+    numero = request.form['numero']
+    sorteo = sorteo(numero)
     
    
     print(nombre)
-    return render_template("play.html", nombre=nombre )
+    return render_template("play.html", nombre=nombre, numero=numero, sorteo=sorteo)
 
+def sorteo(veces):
+    sorteo = []
+    for x in range(0, veces):
+        print(random.randrange(6))
+        sorteo.append(x)
+
+    print(sorteo)
+    return sorteo
 
 
 if __name__ == '__main__' :
