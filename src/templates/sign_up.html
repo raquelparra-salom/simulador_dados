@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+ 
+
+     {% block header %}
+     {% endblock %}
+
+   
+
+     {% block main %}
+     <h1>JUEGA AL DADO</h1>
+     {% endblock %}
+      
+{% block content %}
+     
+ 
+     
+     <div class="container">
+          <form action="/juego" method="post">
+               <label for="nombre">Nombre: </label>
+               <input type="text" id="nombre" name="name" /><br>
+               <label for="numero">¿Cuántos dados quieres tirar? </label>
+               <input type="number" id="numero" name="numero" /><br>
+               <input type="submit" id="sorteo" name="sorteo" value="Lanza el dado" />
+       
+ 
+     </div>
+ 
+     
+
+ {% endblock %}
+  
+
+     {% block footer %}
+     {% endblock %}

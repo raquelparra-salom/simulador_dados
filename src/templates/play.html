@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+<h1>JUEGA AL DADO</h1>
+{% endblock %}
+
+{% block main %}
+
+
+
+{% if nombre %}
+    <h2>Bienvenid@ {{ nombre }}</h2>
+    <h2>El resultado es {{ numero }}</h2>
+
+{% endif %}
+
+{% endblock %}
