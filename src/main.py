@@ -15,6 +15,14 @@ app =  Flask(__name__)
 app.config['SECRET_KEY'] = 'SUPER SECRETO'
 
 
+
+@app.route('/', methods=['GET', 'POST'])
+def login():
+    return render_template("sign_up.html")
+
+
+@app.route('/juego', methods=['GET', 'POST'])
+
 def sorteo(veces):
     sorteo = []
     for x in range(0, veces):
@@ -24,21 +32,11 @@ def sorteo(veces):
     print(sorteo)
     return sorteo
 
-
-@app.route('/', methods=['GET', 'POST'])
-def login():
-    return render_template("sign_up.html")
-
-
-@app.route('/juego', methods=['GET', 'POST'])
 def sorteo():
-
-    sorteo = sorteo(numero)
     nombre = request.form['name']
     numero = request.form['numero']
-    sorteo = sorteo(numero)
-    
-   
+    sorteo = sorteo(init(numero))
+
     print(nombre)
     return render_template("play.html", nombre=nombre, numero=numero, sorteo=sorteo)
 
