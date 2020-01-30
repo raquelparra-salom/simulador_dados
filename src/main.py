@@ -21,21 +21,20 @@ def login():
     return render_template("sign_up.html")
 
 
-@app.route('/juego', methods=['GET', 'POST'])
 
 def realizarSorteo(veces):
     sorteo = []
     for x in range(0, veces):
-        print(random.randrange(6))
-        sorteo.append(x)
+        sorteo.append(random.randrange(1,7))
 
     print(sorteo)
     return sorteo
 
+@app.route('/juego', methods=['GET', 'POST'])
 def sorteo():
     nombre = request.form['name']
-    numero = request.form['numero']
-    sorteo = realizarSorteo(init(numero))
+    numero = request.form['number']
+    sorteo = realizarSorteo(int(numero))
 
     print(nombre)
     return render_template("play.html", nombre=nombre, numero=numero, sorteo=sorteo)
